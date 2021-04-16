@@ -1,0 +1,31 @@
+// Colors
+$primary: #1687a7;
+$secondary: #ee9595;
+$info: #d3e0ea;
+$dark: #3f3f44;
+$light: #f6f5f5;
+
+$color-contrast-dark: $dark;
+$color-contrast-light: $light;
+
+// Body Color
+$body-color: $dark;
+
+// Links
+$link-decoration: none;
+
+// Containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1200px,
+);
+
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto+Slab:wght@300;500;700&display=swap");
+$font-family-sans-serif: "Poppins", sans-serif;
+$font-family-base: "Roboto Slab", serif;
+$font-size-base: 0.875rem;
+$font-weight-normal: 500;

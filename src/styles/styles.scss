@@ -1,0 +1,36 @@
+@import "customs";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Headers
+h1,
+h2,
+h3 {
+  font-family: $font-family-sans-serif;
+}
+
+h3 {
+  color: $primary;
+  font-size: $font-size-base;
+}
+
+// Logo
+.logo {
+  font-size: 1.75rem; // 28px
+}
+
+// Navbar badges
+.navbar {
+  .cart {
+    button {
+      &:hover {
+        background-color: $light;
+      }
+    }
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+    right: -5px;
+  }
+}
