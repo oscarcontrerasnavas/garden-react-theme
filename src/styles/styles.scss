@@ -8,9 +8,18 @@ h3 {
   font-family: $font-family-sans-serif;
 }
 
-h3 {
-  color: $primary;
+h3,
+h4 {
   font-size: $font-size-base;
+}
+
+h4 {
+  font-family: $font-family-base;
+}
+
+// Buttons
+.btn {
+  transition: all 0.3s ease;
 }
 
 // Logo
@@ -32,5 +41,144 @@ h3 {
     font-size: 0.75rem;
     padding: 3px 6px;
     right: -5px;
+  }
+}
+
+// Products
+.product {
+  @keyframes productAppear {
+    0% {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  animation: productAppear 0.5s ease-in;
+  transition: all 0.3s ease-in;
+
+  &.featured {
+    .img-container {
+      padding-top: 124.1%;
+    }
+
+    .product__buttons {
+      button {
+        &.favorite {
+          color: $secondary;
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+
+  .img-container {
+    height: 0;
+    overflow: hidden;
+    padding-top: 120%;
+    position: relative;
+    border-radius: $border-radius-lg;
+
+    img {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      transition: all 1s ease;
+    }
+  }
+
+  &:hover {
+    .product__buttons {
+      button {
+        opacity: 1;
+
+        &:not(.favorite) {
+          bottom: 5.5rem;
+        }
+      }
+    }
+
+    img {
+      transform: scale(1.08);
+    }
+  }
+
+  &__buttons {
+    button {
+      opacity: 0;
+
+      &.favorite {
+        color: $gray-400;
+        transition: all 0.2s;
+      }
+
+      &:not(.favorite) {
+        background-color: $dark;
+        border: none;
+        bottom: 4rem;
+        left: 50%;
+        transition: all 0.5s ease-in-out;
+
+        padding: 5px 9px;
+        position: absolute;
+
+        &:before {
+          background-color: $light;
+          border-radius: $border-radius-sm;
+          color: $dark;
+          font-size: 0.7rem;
+          left: 50%;
+          opacity: 0;
+          padding: 1px 5px;
+          position: absolute;
+          pointer-events: none;
+          top: -1.8rem;
+          transform: translate(-50%, -100%);
+          transition: all 0.3s ease-in;
+        }
+
+        &:hover {
+          background-color: $light;
+          color: $dark;
+
+          &:before {
+            transform: translate(-50%, 0);
+            opacity: 1;
+          }
+        }
+
+        &.more {
+          transform: translate(-115%, 0);
+
+          &::before {
+            content: "More";
+          }
+        }
+
+        &.add-cart {
+          transform: translate(15%, 0);
+
+          &::before {
+            content: "Add to Cart";
+            width: 4.6rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Categories
+.btn-category {
+  color: $gray-400;
+
+  &:hover,
+  &.active {
+    color: $dark;
   }
 }

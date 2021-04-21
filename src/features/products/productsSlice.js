@@ -1,0 +1,79 @@
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { products_url } from "../../utils/globals";
+import { getUniqueValues } from "../../utils/helpers";
+
+const initialState = {
+  products: [],
+  categories: [],
+  filters: {
+    category: "all",
+  },
+  filtered: [],
+  status: null,
+  error: null,
+};
+
+// Async
+export const getProducts = createAsyncThunk(
+  "products/getProducts",
+  async () => {
+    try {
+      const response = await axios.get(products_url);
+      if (299 >= response.status && response.status >= 200) {
+        return response.data;
+      } else {
+        throw new Error(`error: ${response.status}`);
+      }
+    } catch (error) {
+      return error;
+    }
+  }
+);
+
+// Slice
+const productsSlice = createSlice({
+  name: "products",
+  initialState,
+  reducers: {
+    updateFilter(state, { payload }) {
+      let { name, value } = payload;
+      let temp = state.products;
+      state.filters[name] = value;
+
+      // Filter category
+      if (state.filters.category !== "all") {
+        temp = temp.filter(
+          (product) => product.category === state.filters.category
+        );
+      }
+
+      state.filtered = temp;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getProducts.pending, (state) => {
+        state.status = "pending";
+      })
+      .addCase(getProducts.fulfilled, (state, action) => {
+        state.status = "fulfilled";
+        state.products = action.payload;
+        state.filtered = action.payload;
+        state.categories = getUniqueValues(action.payload, "category");
+      })
+      .addCase(getProducts.rejected, (state) => {
+        state.status = "rejected";
+      });
+  },
+});
+
+export const { updateFilter } = productsSlice.actions;
+
+// Selectors
+export const selectStatus = (state) => state.products.status;
+export const selectProducts = (state) => state.products.filtered;
+export const selectCategories = (state) => state.products.categories;
+export const selectFilters = (state) => state.products.filters;
+
+export default productsSlice.reducer;
