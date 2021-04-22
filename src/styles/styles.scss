@@ -182,3 +182,31 @@ h4 {
     color: $dark;
   }
 }
+
+// Newsletter
+.newsletter {
+  background: url("../assets/images/newsletter.jpg") no-repeat 50% 50%;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  input {
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    &[type="email"] {
+      padding-left: 2rem;
+    }
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .bi {
+    left: 1.5rem;
+    top: 0.3rem;
+  }
+}
