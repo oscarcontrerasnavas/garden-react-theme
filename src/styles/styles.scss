@@ -20,6 +20,10 @@ h4 {
 // Buttons
 .btn {
   transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 // Logo
@@ -33,6 +37,7 @@ h4 {
     button {
       &:hover {
         background-color: $light;
+        transform: scale(1);
       }
     }
   }
@@ -42,6 +47,13 @@ h4 {
     padding: 3px 6px;
     right: -5px;
   }
+}
+
+// Welcome Section
+.welcome {
+  margin-bottom: 6rem;
+  margin-top: 5rem;
+  max-width: 40vw;
 }
 
 // Products
@@ -180,6 +192,7 @@ h4 {
   &:hover,
   &.active {
     color: $dark;
+    transform: scale(1);
   }
 }
 
