@@ -31,3 +31,16 @@ $font-family-sans-serif: "Poppins", sans-serif;
 $font-family-base: "Roboto Slab", serif;
 $font-size-base: 0.875rem;
 $font-weight-normal: 500;
+
+// Spacers
+$spacer: 1rem;
+
+$spacers: (
+  0: 0,
+  1: $spacer / 4,
+  2: $spacer / 2,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 5,
+);
