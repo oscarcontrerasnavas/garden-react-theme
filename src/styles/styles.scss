@@ -246,3 +246,20 @@ h4 {
     }
   }
 }
+
+// Footer {
+.main-footer {
+  .media-links a {
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  ul a {
+    &:hover {
+      border-bottom: 2px solid $light;
+    }
+  }
+}

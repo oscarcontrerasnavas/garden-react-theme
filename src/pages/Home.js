@@ -1,6 +1,7 @@
 import ProductsContainer from "../features/products/ProductsContainer";
 import Newsletter from "../components/Newsletter";
 import GalleryContainer from "../features/gallery/GalleryContainer";
+import Footer from "../components/Footer";
 import pot1 from "../assets/images/pot1.jpg";
 import pot2 from "../assets/images/pot2.jpg";
 import pot3 from "../assets/images/pot3.jpg";
@@ -106,6 +107,7 @@ const Home = () => {
         </div>
       </div>
       <GalleryContainer />
+      <Footer />
     </div>
   );
 };
