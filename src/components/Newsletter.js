@@ -1,6 +1,6 @@
 const Newsletter = () => {
   return (
-    <div className="newsletter my-5">
+    <div className="newsletter mb-5">
       <div className="container">
         <div className="row align-items-center justify-content-evenly">
           <div className="col-12 col-md-3">
