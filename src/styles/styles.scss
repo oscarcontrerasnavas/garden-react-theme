@@ -26,6 +26,13 @@ h4 {
   }
 }
 
+// main header
+.main-header {
+  margin-top: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
 // Logo
 .logo {
   font-size: 1.75rem; // 28px
@@ -48,6 +55,8 @@ h4 {
     right: -5px;
   }
 }
+
+// Main Slider
 
 // Welcome Section
 .welcome {

@@ -1,3 +1,4 @@
+import Mainslider from "../features/Slider/MainSlider";
 import ProductsContainer from "../features/products/ProductsContainer";
 import Newsletter from "../components/Newsletter";
 import GalleryContainer from "../features/gallery/GalleryContainer";
@@ -11,7 +12,8 @@ import blog2 from "../assets/images/blog2.jpg";
 const Home = () => {
   return (
     <div className="home-page">
-      <div className="container my-5">
+      <Mainslider />
+      <div className="container">
         <h1 className="text-center">
           Welcome to Garden<span className="text-primary">.</span>
         </h1>
@@ -19,7 +21,7 @@ const Home = () => {
           ~ Your friendly nature reminder ~
         </h3>
 
-        <p className="text-center welcome mx-auto">
+        <p className="text-center welcome mx-auto my-5">
           We are an Online Market of beautiful little tiny homie plants, pots
           and gardening suplies. Visit our site for a complete list of the
           options we have for you.

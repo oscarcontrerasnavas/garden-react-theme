@@ -1,0 +1,51 @@
+.slider {
+  overflow: hidden;
+  position: relative;
+  height: 600px;
+
+  &__slide {
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &.active-slide {
+      pointer-events: all;
+
+      img {
+        position: relative;
+      }
+    }
+  }
+
+  &__arrows {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    z-index: 10;
+
+    button.btn {
+      position: absolute;
+      opacity: 0.5;
+
+      &:focus,
+      &:active,
+      &:hover {
+        opacity: 1;
+        outline: none;
+        transform: none;
+        box-shadow: none;
+      }
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+  }
+}
