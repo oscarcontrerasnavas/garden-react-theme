@@ -45,7 +45,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 This is a personal project to learn and practice front-end development. If you are here, maybe you are interested in the technologies/libraries used in this work.
 
-![Landing]()
+![Landing](./src/assets/images/Landing.jpg)
 
 - [Bootstrap v5 (HTML, CSS)](https://getbootstrap.com/)
 - [React](https://reactjs.org/)
