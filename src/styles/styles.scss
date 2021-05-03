@@ -18,11 +18,12 @@ h4 {
 }
 
 // Buttons
-.btn {
-  transition: all 0.3s ease;
+.btn:not(.btn-link) {
+  padding: 0.7rem 2rem;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
   }
 }
 
@@ -57,6 +58,20 @@ h4 {
 }
 
 // Main Slider
+#main-slider {
+  position: relative;
+  top: -120px;
+
+  h1 {
+    font-size: $font-size-base * 3.5;
+  }
+
+  h2 {
+    font-family: $font-family-base;
+    font-weight: $light;
+    font-size: $font-size-base * 1.5;
+  }
+}
 
 // Welcome Section
 .welcome {

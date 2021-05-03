@@ -20,13 +20,12 @@ const Slider = ({ id, children }) => {
     });
   }, []);
 
-  // Animations In
   useEffect(() => {
     const slideShow = anime({
       targets: [".slider__slide.active-slide"],
       opacity: [0, 1],
       easing: "easeInOutSine",
-      duration: 1500,
+      duration: 1000,
       autoplay: false,
       complete: () => {
         textShow.play();
@@ -38,9 +37,9 @@ const Slider = ({ id, children }) => {
       opacity: [0, 1],
       easing: "easeOutExpo",
       autoplay: false,
-      delay: (el, i) => 150 * i,
+      duration: 400,
+      delay: (el, i) => 100 * i,
       complete: () => {
-        imgShow.play();
         elementsShow.play();
       },
     });
@@ -48,21 +47,24 @@ const Slider = ({ id, children }) => {
     const elementsShow = anime({
       targets: [
         ".slider__slide.active-slide p",
-        ".slider__slide.active-slide button",
+        ".slider__slide.active-slide .btn",
+        ".slider__slide.active-slide img",
       ],
       opacity: [0, 1],
-      easing: "easeInQuad",
+      translateY: ["30px", "0"],
+      translateX: {
+        value: 0,
+        duration: 0,
+      },
+      easing: "easeInOutQuart",
       autoplay: false,
-      duration: 1000,
-    });
-
-    const imgShow = anime({
-      targets: ".slider__slide.active-slide img",
-      opacity: [0, 1],
-      translateX: [300, 0],
-      easing: "easeOutBounce",
-      autoplay: false,
-      duration: 1000,
+      duration: 700,
+      delay: (el, i) => 50 * i,
+      complete: () => {
+        document
+          .querySelector(".slider__slide.active-slide .btn")
+          .removeAttribute("style");
+      },
     });
 
     slideShow.play();
