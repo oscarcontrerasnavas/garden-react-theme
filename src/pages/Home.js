@@ -21,7 +21,7 @@ const Home = () => {
           ~ Your friendly nature reminder ~
         </h3>
 
-        <p className="text-center welcome mx-auto my-5">
+        <p className="text-center welcome mx-auto mt-5 mb-7">
           We are an Online Market of beautiful little tiny homie plants, pots
           and gardening suplies. Visit our site for a complete list of the
           options we have for you.
@@ -65,7 +65,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center mt-4 mb-5">
           <button className="btn btn-secondary text-light my-5 mx-auto">
             Go to store
           </button>

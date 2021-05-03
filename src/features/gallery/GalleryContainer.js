@@ -21,9 +21,9 @@ const GalleryContainer = () => {
   }
 
   return (
-    <div className="container my-6 gallery">
+    <div className="container my-8 gallery">
       <h1 className="text-center">Gallery</h1>
-      <h4 className="text-center text-primary mb-6">
+      <h4 className="text-center text-primary mb-7">
         ~ More pictures on <a href="https://unsplahs.com">unsplash.com</a> ~
       </h4>
       <Splide

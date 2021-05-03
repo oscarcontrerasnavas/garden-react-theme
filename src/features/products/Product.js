@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Product = ({ product, className }) => {
   const { name, image, price } = product;
   return (
-    <Link className="text-dark">
+    <Link to="/" className="text-dark">
       <div className={`product position-relative ${className}`}>
         <div className="img-container">
           <img src={image} alt={name} />
