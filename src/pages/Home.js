@@ -16,7 +16,6 @@ import float2 from "../assets/images/float2.png";
 const Home = () => {
   useEffect(() => {
     const targets = document.querySelectorAll("section");
-    console.log(targets);
 
     const options = {
       root: null,

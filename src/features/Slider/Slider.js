@@ -13,9 +13,10 @@ const Slider = ({ id, children }) => {
       elements.forEach((el) => {
         let words = el.textContent.split(" ");
         el.innerHTML = "";
-        words.map((word) => {
-          el.innerHTML += `<span class="word d-inline-block">${word}</span> `;
-        });
+        words.map(
+          (word) =>
+            (el.innerHTML += `<span class="word d-inline-block">${word}</span> `)
+        );
       });
     });
   }, []);

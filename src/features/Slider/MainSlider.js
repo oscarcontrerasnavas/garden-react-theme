@@ -66,7 +66,7 @@ const MainSlider = () => {
               </button>
             </div>
             <div className="col-12 col-md-5">
-              <img src={slide1} alt="slide1" className="img-fluid mb-5" />
+              <img src={slide3} alt="slide1" className="img-fluid mb-5" />
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@ const MainSlider = () => {
               </button>
             </div>
             <div className="col-12 col-md-5">
-              <img src={slide1} alt="slide1" className="img-fluid mb-5" />
+              <img src={slide4} alt="slide1" className="img-fluid mb-5" />
             </div>
           </div>
         </div>

@@ -42,7 +42,9 @@ const Footer = () => {
               {categories.map((category, index) => {
                 return (
                   <li key={index} className="my-2">
-                    <Link className="text-light fw-light">{category}</Link>
+                    <Link to="/" className="text-light fw-light">
+                      {category}
+                    </Link>
                   </li>
                 );
               })}
