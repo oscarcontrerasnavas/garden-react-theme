@@ -30,10 +30,10 @@ jobs:
         env:
           CI: false
 
-      - name: Run tests
-        run: npm run test --if-present
-        env:
-          CI: false
+      # - name: Run tests
+      #   run: npm run test --if-present
+      #   env:
+      #     CI: false
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
