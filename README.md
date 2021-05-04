@@ -1,3 +1,8 @@
+# Check the built website
+
+[https://oscarcontrerasnavas.github.io/garden-react-theme/](https://oscarcontrerasnavas.github.io/garden-react-theme/)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
