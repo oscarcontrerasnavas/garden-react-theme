@@ -1,19 +1,50 @@
+import { useEffect } from "react";
 import Mainslider from "../features/Slider/MainSlider";
 import ProductsContainer from "../features/products/ProductsContainer";
 import Newsletter from "../components/Newsletter";
 import GalleryContainer from "../features/gallery/GalleryContainer";
 import Footer from "../components/Footer";
+import "../utils/parallax";
 import pot1 from "../assets/images/pot1.jpg";
 import pot2 from "../assets/images/pot2.jpg";
 import pot3 from "../assets/images/pot3.jpg";
 import blog1 from "../assets/images/blog1.jpg";
 import blog2 from "../assets/images/blog2.jpg";
+import float1 from "../assets/images/float1.png";
+import float2 from "../assets/images/float2.png";
 
 const Home = () => {
+  useEffect(() => {
+    const targets = document.querySelectorAll("section");
+    console.log(targets);
+
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.25,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      });
+    }, options);
+
+    targets.forEach((target) => {
+      observer.observe(target);
+    });
+  }, []);
+
   return (
-    <div className="home-page">
+    <>
       <Mainslider />
-      <div className="container">
+      <img src={float1} alt="" className="parallax float-1" data-speed="1" />
+      <img src={float2} alt="" className="parallax float-2" data-speed="3" />
+      <section className="container">
         <h1 className="text-center">
           Welcome to Garden<span className="text-primary">.</span>
         </h1>
@@ -70,11 +101,11 @@ const Home = () => {
             Go to store
           </button>
         </div>
-      </div>
+      </section>
       <ProductsContainer />
       <Newsletter />
-      <div className="container">
-        <h1 className="text-center pt-5">Our Blog</h1>
+      <section className="container">
+        <h1 className="text-center">Our Blog</h1>
         <h4 className="text-center text-primary">~ Latest Entrance ~</h4>
 
         <div className="row my-5 pt-5">
@@ -107,10 +138,10 @@ const Home = () => {
             <button className="btn btn-dark mt-3">Read More</button>
           </div>
         </div>
-      </div>
+      </section>
       <GalleryContainer />
       <Footer />
-    </div>
+    </>
   );
 };
 

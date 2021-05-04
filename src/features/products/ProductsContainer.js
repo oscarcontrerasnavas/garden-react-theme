@@ -22,14 +22,14 @@ const ProductsContainer = () => {
   // Output
   if (!products.length) {
     return (
-      <div className="container">
+      <section className="container">
         <p className="py-5 text-center">Loading...</p>
-      </div>
+      </section>
     );
   }
 
   return (
-    <div>
+    <section>
       {/* Categories */}
       <div className="container">
         <div className="row justify-content-end mb-4">
@@ -54,7 +54,7 @@ const ProductsContainer = () => {
       </div>
 
       {/* Products */}
-      <section className="container">
+      <div className="container">
         <div className="row">
           {/* Big image */}
           <article className="col-md-5">
@@ -77,8 +77,8 @@ const ProductsContainer = () => {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 
