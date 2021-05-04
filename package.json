@@ -2,6 +2,7 @@
   "name": "garden-react-theme",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://oscarcontrerasnavas.github.io/garden-react-theme/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
     "@splidejs/react-splide": "^0.4.4",
