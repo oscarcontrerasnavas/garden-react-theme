@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,9 +7,13 @@ import { getImages, selectImages } from "./gallerySlice";
 const GalleryContainer = () => {
   const images = useSelector(selectImages);
   const dispatch = useDispatch();
+  const splideRef = useRef();
 
   useEffect(() => {
     dispatch(getImages());
+    setInterval(() => {
+      splideRef.current.splide.go(">");
+    }, 4000);
   }, []);
 
   if (!images) {
@@ -24,15 +28,15 @@ const GalleryContainer = () => {
     <section className="container my-8 gallery">
       <h1 className="text-center">Gallery</h1>
       <h4 className="text-center text-primary mb-7">
-        ~ More pictures on <a href="https://unsplahs.com">unsplash.com</a> ~
+        ~ More pictures on <a href="https://unsplash.com">unsplash.com</a> ~
       </h4>
       <Splide
+        ref={splideRef}
         options={{
           type: "loop",
           autoWidth: true,
           gap: "2rem",
           pagination: false,
-          autoplay: true,
           pauseOnHover: false,
           pauseObFocus: false,
           arrows: "slider",
