@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://oscarcontrerasnavas.github.io/garden-react-theme/",
   "dependencies": {
+    "@glidejs/glide": "^3.4.1",
     "@reduxjs/toolkit": "^1.5.1",
     "@splidejs/react-splide": "^0.4.4",
     "@testing-library/jest-dom": "^5.11.10",

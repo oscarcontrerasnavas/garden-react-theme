@@ -18,6 +18,16 @@ h4 {
 }
 
 // Buttons
+.btn {
+  &,
+  &:active,
+  &:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+}
+
 .btn:not(.btn-link) {
   padding: 0.7rem 2rem;
   transition: all 0.3s ease-in-out;
@@ -281,7 +291,7 @@ section {
 }
 
 // Gallery
-.gallery {
+.gallery__glide {
   a {
     &:hover {
       span {
@@ -298,6 +308,16 @@ section {
     img {
       opacity: 1;
       transition: all 0.5s ease-out;
+    }
+  }
+
+  .glide__arrow {
+    color: $dark;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 1;
     }
   }
 }

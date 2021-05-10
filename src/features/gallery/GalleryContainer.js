@@ -1,20 +1,32 @@
-import React, { useEffect, useRef } from "react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/splide/dist/css/themes/splide-default.min.css";
+import React, { useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getImages, selectImages } from "./gallerySlice";
+import Glide from "@glidejs/glide";
+import "@glidejs/glide/dist/css/glide.core.min.css";
+
+const sliderConfiguration = {
+  type: "carousel",
+  perView: 6,
+  gap: "2rem",
+  autoplay: 3000,
+};
 
 const GalleryContainer = () => {
   const images = useSelector(selectImages);
   const dispatch = useDispatch();
-  const splideRef = useRef();
+  const slider = useMemo(
+    () => new Glide(".gallery__glide", sliderConfiguration)
+  );
 
   useEffect(() => {
     dispatch(getImages());
-    setInterval(() => {
-      splideRef.current.splide.go(">");
-    }, 4000);
-  }, []);
+  }, [dispatch]);
+
+  useEffect(() => {
+    return () => {
+      slider.mount();
+    };
+  }, [slider]);
 
   if (!images) {
     return (
@@ -25,43 +37,53 @@ const GalleryContainer = () => {
   }
 
   return (
-    <section className="container my-8 gallery">
+    <section className="container my-7 gallery">
       <h1 className="text-center">Gallery</h1>
-      <h4 className="text-center text-primary mb-7">
+      <h4 className="text-center text-primary mb-5">
         ~ More pictures on <a href="https://unsplash.com">unsplash.com</a> ~
       </h4>
-      <Splide
-        ref={splideRef}
-        options={{
-          type: "loop",
-          autoWidth: true,
-          gap: "2rem",
-          pagination: false,
-          pauseOnHover: false,
-          pauseObFocus: false,
-          arrows: "slider",
-        }}
-      >
-        {images.map((image) => {
-          return (
-            <SplideSlide key={image.id}>
-              <a
-                href={image.links.html}
-                target="_blanck"
-                className="position-relative"
-              >
-                <span className="badge bg-light text-dark position-absolute fs-3 start-50 translate-middle">
-                  {image.likes} Likes
-                </span>
-                <img
-                  src={image.urls.raw + "&w=180&h=180"}
-                  alt={image.alt_description}
-                />
-              </a>
-            </SplideSlide>
-          );
-        })}
-      </Splide>
+
+      {/* Glide slider */}
+      <div class="gallery__glide">
+        <div
+          class="glide__arrows d-flex justify-content-end align-content-center"
+          data-glide-el="controls"
+        >
+          <button
+            class="glide__arrow glide__arrow--left btn btn-link"
+            data-glide-dir="<"
+          >
+            <i className="bi bi-arrow-left fs-1"></i>
+          </button>
+          <button
+            class="glide__arrow glide__arrow--right btn btn-link"
+            data-glide-dir=">"
+          >
+            <i className="bi bi-arrow-right fs-1"></i>
+          </button>
+        </div>
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            {images.map((image, index) => (
+              <li className="glide__slide" key={index}>
+                <a
+                  href={image.links.html}
+                  target="_blanck"
+                  className="position-relative"
+                >
+                  <span className="badge bg-light text-dark position-absolute fs-3 start-50 top-50 translate-middle">
+                    {image.likes} Likes
+                  </span>
+                  <img
+                    src={image.urls.raw + "&w=180&h=180"}
+                    alt={image.alt_description}
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </section>
   );
 };
