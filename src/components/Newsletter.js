@@ -1,10 +1,7 @@
 const Newsletter = () => {
   return (
     <section className="newsletter py-6 my-6 overflow-hidden">
-      <div
-        className="container position-relative parallax float-3"
-        data-speed="2"
-      >
+      <div className="container position-relative" data-speed="2">
         <div className="row align-items-center justify-content-evenly">
           <div className="col-12 col-md-3">
             <p className="fs-1 fw-light mb-0 pb-0">
