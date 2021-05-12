@@ -232,7 +232,6 @@ p {
 // Intersection Observer
 section.observed {
   opacity: 0;
-  pointer-events: none;
 
   &.show {
     opacity: 1;
