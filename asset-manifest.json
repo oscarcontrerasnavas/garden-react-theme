@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/garden-react-theme/static/css/main.f85d9f01.chunk.css",
-    "main.js": "/garden-react-theme/static/js/main.65025fed.chunk.js",
-    "main.js.map": "/garden-react-theme/static/js/main.65025fed.chunk.js.map",
+    "main.css": "/garden-react-theme/static/css/main.3cba3ebf.chunk.css",
+    "main.js": "/garden-react-theme/static/js/main.73fe9138.chunk.js",
+    "main.js.map": "/garden-react-theme/static/js/main.73fe9138.chunk.js.map",
     "runtime-main.js": "/garden-react-theme/static/js/runtime-main.10faf3c7.js",
     "runtime-main.js.map": "/garden-react-theme/static/js/runtime-main.10faf3c7.js.map",
-    "static/css/2.85a09a9b.chunk.css": "/garden-react-theme/static/css/2.85a09a9b.chunk.css",
-    "static/js/2.2eab286e.chunk.js": "/garden-react-theme/static/js/2.2eab286e.chunk.js",
-    "static/js/2.2eab286e.chunk.js.map": "/garden-react-theme/static/js/2.2eab286e.chunk.js.map",
+    "static/css/2.ea22809a.chunk.css": "/garden-react-theme/static/css/2.ea22809a.chunk.css",
+    "static/js/2.f17eaa5b.chunk.js": "/garden-react-theme/static/js/2.f17eaa5b.chunk.js",
+    "static/js/2.f17eaa5b.chunk.js.map": "/garden-react-theme/static/js/2.f17eaa5b.chunk.js.map",
     "index.html": "/garden-react-theme/index.html",
-    "static/css/2.85a09a9b.chunk.css.map": "/garden-react-theme/static/css/2.85a09a9b.chunk.css.map",
-    "static/css/main.f85d9f01.chunk.css.map": "/garden-react-theme/static/css/main.f85d9f01.chunk.css.map",
-    "static/js/2.2eab286e.chunk.js.LICENSE.txt": "/garden-react-theme/static/js/2.2eab286e.chunk.js.LICENSE.txt",
+    "static/css/2.ea22809a.chunk.css.map": "/garden-react-theme/static/css/2.ea22809a.chunk.css.map",
+    "static/css/main.3cba3ebf.chunk.css.map": "/garden-react-theme/static/css/main.3cba3ebf.chunk.css.map",
+    "static/js/2.f17eaa5b.chunk.js.LICENSE.txt": "/garden-react-theme/static/js/2.f17eaa5b.chunk.js.LICENSE.txt",
     "static/media/blog1.d5463e69.jpg": "/garden-react-theme/static/media/blog1.d5463e69.jpg",
     "static/media/blog2.137e1ff2.jpg": "/garden-react-theme/static/media/blog2.137e1ff2.jpg",
     "static/media/bootstrap-icons.css": "/garden-react-theme/static/media/bootstrap-icons.0f69dcdb.woff",
@@ -22,15 +22,16 @@
     "static/media/pot2.eea9b21f.jpg": "/garden-react-theme/static/media/pot2.eea9b21f.jpg",
     "static/media/pot3.636c57b5.jpg": "/garden-react-theme/static/media/pot3.636c57b5.jpg",
     "static/media/slide1.e88ae16d.png": "/garden-react-theme/static/media/slide1.e88ae16d.png",
-    "static/media/slide2.856e46eb.png": "/garden-react-theme/static/media/slide2.856e46eb.png",
+    "static/media/slide2.3805370f.png": "/garden-react-theme/static/media/slide2.3805370f.png",
     "static/media/slide3.fe20875d.png": "/garden-react-theme/static/media/slide3.fe20875d.png",
-    "static/media/slide4.7cbb9672.png": "/garden-react-theme/static/media/slide4.7cbb9672.png"
+    "static/media/slide4.7cbb9672.png": "/garden-react-theme/static/media/slide4.7cbb9672.png",
+    "static/media/slide5.d5e09055.png": "/garden-react-theme/static/media/slide5.d5e09055.png"
   },
   "entrypoints": [
     "static/js/runtime-main.10faf3c7.js",
-    "static/css/2.85a09a9b.chunk.css",
-    "static/js/2.2eab286e.chunk.js",
-    "static/css/main.f85d9f01.chunk.css",
-    "static/js/main.65025fed.chunk.js"
+    "static/css/2.ea22809a.chunk.css",
+    "static/js/2.f17eaa5b.chunk.js",
+    "static/css/main.3cba3ebf.chunk.css",
+    "static/js/main.73fe9138.chunk.js"
   ]
 }
