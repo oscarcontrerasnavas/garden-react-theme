@@ -44,26 +44,26 @@ const GalleryContainer = () => {
       </h4>
 
       {/* Glide slider */}
-      <div class="gallery__glide">
+      <div className="gallery__glide">
         <div
-          class="glide__arrows d-flex justify-content-end align-content-center"
+          className="glide__arrows d-flex justify-content-end align-content-center"
           data-glide-el="controls"
         >
           <button
-            class="glide__arrow glide__arrow--left btn btn-link"
+            className="glide__arrow glide__arrow--left btn btn-link"
             data-glide-dir="<"
           >
             <i className="bi bi-arrow-left fs-1"></i>
           </button>
           <button
-            class="glide__arrow glide__arrow--right btn btn-link"
+            className="glide__arrow glide__arrow--right btn btn-link"
             data-glide-dir=">"
           >
             <i className="bi bi-arrow-right fs-1"></i>
           </button>
         </div>
-        <div class="glide__track" data-glide-el="track">
-          <ul class="glide__slides">
+        <div className="glide__track" data-glide-el="track">
+          <ul className="glide__slides">
             {images.map((image, index) => (
               <li className="glide__slide" key={index}>
                 <a

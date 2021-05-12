@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Mainslider from "../features/Slider/MainSlider";
+import Mainslider from "../components/MainSlider";
 import ProductsContainer from "../features/products/ProductsContainer";
 import Newsletter from "../components/Newsletter";
 import GalleryContainer from "../features/gallery/GalleryContainer";
