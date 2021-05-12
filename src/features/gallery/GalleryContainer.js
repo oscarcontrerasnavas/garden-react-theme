@@ -7,8 +7,14 @@ import "@glidejs/glide/dist/css/glide.core.min.css";
 const sliderConfiguration = {
   type: "carousel",
   perView: 6,
-  gap: "2rem",
-  autoplay: 3000,
+  gap: 20,
+  autoplay: 4000,
+  breakpoints: {
+    720: {
+      perView: 1,
+      gap: 0,
+    },
+  },
 };
 
 const GalleryContainer = () => {
@@ -37,7 +43,7 @@ const GalleryContainer = () => {
   }
 
   return (
-    <section className="container my-7 gallery">
+    <section className="container my-7 gallery observed">
       <h1 className="text-center">Gallery</h1>
       <h4 className="text-center text-primary mb-5">
         ~ More pictures on <a href="https://unsplash.com">unsplash.com</a> ~
@@ -75,8 +81,9 @@ const GalleryContainer = () => {
                     {image.likes} Likes
                   </span>
                   <img
-                    src={image.urls.raw + "&w=180&h=180"}
+                    src={image.urls.raw + "&w=360&h=360"}
                     alt={image.alt_description}
+                    className="img-fluid"
                   />
                 </a>
               </li>

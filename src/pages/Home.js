@@ -20,7 +20,7 @@ const Home = () => {
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.25,
+      threshold: 0.1,
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -43,7 +43,7 @@ const Home = () => {
       <Mainslider />
       <img src={float1} alt="" className="parallax float-1" data-speed="1" />
       <img src={float2} alt="" className="parallax float-2" data-speed="3" />
-      <section className="container">
+      <section className="container observed">
         <h1 className="text-center">
           Welcome to Garden<span className="text-primary">.</span>
         </h1>
@@ -58,7 +58,7 @@ const Home = () => {
         </p>
 
         <div className="row">
-          <div className="col-12 col-md mx-3">
+          <div className="col-12 col-md mx-md-3 mb-5 mb-md-0">
             <img
               src={pot1}
               alt="Potted plan"
@@ -67,7 +67,7 @@ const Home = () => {
             <h2 className="fs-5 fw-bold mt-5 mb-3">Flowers in flowerpots</h2>
             <p>Fill room with aromatic flowers. Take colors for yourself.</p>
           </div>
-          <div className="col-12 col-md mx-3">
+          <div className="col-12 col-md mx-md-3 mb-5 mb-md-0">
             <img
               src={pot2}
               alt="Potted plan"
@@ -81,7 +81,7 @@ const Home = () => {
               plants.
             </p>
           </div>
-          <div className="col-12 col-md mx-3">
+          <div className="col-12 col-md mx-md-3 mb-5 mb-md-0">
             <img
               src={pot3}
               alt="Potted plan"
@@ -95,7 +95,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="d-flex align-items-center mt-4 mb-5">
+        <div className="d-flex align-items-center mt-md-4 mb-5">
           <button className="btn btn-secondary text-light my-5 mx-auto">
             Go to store
           </button>
@@ -103,12 +103,12 @@ const Home = () => {
       </section>
       <ProductsContainer />
       <Newsletter />
-      <section className="container">
+      <section className="container observed">
         <h1 className="text-center">Our Blog</h1>
         <h4 className="text-center text-primary">~ Latest Entrance ~</h4>
 
         <div className="row my-5 pt-5">
-          <div className="col-6">
+          <div className="col-12 col-md-6 mb-6 mb-md-0">
             <img src={blog1} alt="blog" className="img-fluid" />
             <h4 className="text-primary mt-4">Jul 15, 2020</h4>
             <h2 className="fs-5 mb-4">
@@ -122,7 +122,7 @@ const Home = () => {
             </p>
             <button className="btn btn-dark mt-3">Read More</button>
           </div>
-          <div className="col-6">
+          <div className="col-12 col-md-6">
             <img src={blog2} alt="blog" className="img-fluid" />
             <h4 className="text-primary mt-4">Jul 15, 2020</h4>
             <h2 className="fs-5 mb-4">

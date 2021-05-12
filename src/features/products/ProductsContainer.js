@@ -17,21 +17,21 @@ const ProductsContainer = () => {
 
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [dispatch]);
 
   // Output
   if (!products.length) {
     return (
-      <section className="container">
+      <section className="container observed">
         <p className="py-5 text-center">Loading...</p>
       </section>
     );
   }
 
   return (
-    <section>
+    <section className="container observed">
       {/* Categories */}
-      <div className="container">
+      <div>
         <div className="row justify-content-end mb-4">
           <div className="col-md-7">
             {categories.map((cat, index) => {

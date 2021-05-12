@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           {/* Col 1 */}
-          <div className="col-12 col-md-2 col-lg-3">
+          <div className="col-12 col-md-4 col-lg-3 mb-4 mb-mb-0">
             <h1 className="logo mb-4 text-info">
               Garden<span className="text-primary">.</span>
             </h1>
@@ -36,7 +36,7 @@ const Footer = () => {
             </div>
           </div>
           {/* Col 2 */}
-          <div className="col-12 col-md-2 col-lg-3">
+          <div className="col-12 col-md-4 col-lg-3 mb-4 mb-mb-0">
             <h2 className="h4 mt-3 mb-4 text-info">Quick Links</h2>
             <ul className="ps-3">
               {categories.map((category, index) => {
@@ -51,7 +51,7 @@ const Footer = () => {
             </ul>
           </div>
           {/* Col 3 */}
-          <div className="col-12 col-md-2 col-lg-3 ms-auto">
+          <div className="col-12 col-md-4 ms-auto">
             <h2 className="h4 mt-3 mb-4 text-info">Policy</h2>
             <p className="fw-light">
               &#169; Garden 2021. MIT Lisence, free use and reproduction.

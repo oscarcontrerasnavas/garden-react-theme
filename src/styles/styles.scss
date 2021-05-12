@@ -93,7 +93,19 @@ p {
     letter-spacing: 1px;
   }
 
+  .glide__slides {
+    transform: none !important;
+    width: auto !important;
+    display: grid;
+    grid-template-areas: "slide";
+  }
+
   .glide__slide {
+    position: relative;
+    opacity: 0;
+    transition: opacity 800ms ease;
+    grid-area: slide;
+
     h1,
     h2,
     h3,
@@ -108,6 +120,9 @@ p {
   }
 
   .glide__slide--active {
+    z-index: 10;
+    opacity: 1;
+
     h1,
     h2 {
       animation: fadeInDown 1s forwards;
@@ -161,30 +176,81 @@ p {
 // Parallax
 .parallax {
   position: absolute;
+
+  &.float-1 {
+    height: auto;
+    top: 65vh;
+    width: 30%;
+  }
+
+  &.float-2 {
+    height: auto;
+    right: 0;
+    top: 100vh;
+    width: 50%;
+  }
 }
 
-@media (min-width: 1400px) {
-  .float-1 {
-    left: 15vh;
-    top: 70vh;
+@media (min-width: 720px) {
+  .parallax {
+    &.float-1 {
+      width: 20%;
+      top: 50vh;
+    }
+    &.float-2 {
+      width: 40%;
+      top: 80vh;
+    }
   }
-  .float-2 {
-    right: 0;
-    top: 150vh;
+}
+@media (min-width: 960px) {
+  .parallax {
+    &.float-1 {
+      width: 15%;
+      top: 65vh;
+    }
+    &.float-2 {
+      width: 30%;
+      top: 110vh;
+    }
+  }
+}
+@media (min-width: 1400px) {
+  .parallax {
+    &.float-1 {
+      width: 10%;
+      top: 65vh;
+      left: 100px;
+    }
+    &.float-2 {
+      width: 25%;
+      top: 110vh;
+    }
   }
 }
 
 // Intersection Observer
-section {
+section.observed {
   opacity: 0;
   pointer-events: none;
-  transform: translateY(30px);
-  transition: 0.3s ease-in-out;
 
   &.show {
     opacity: 1;
-    pointer-events: all;
-    transform: translateY(0);
+    animation: customfadeInUp 800ms forwards;
+  }
+
+  @keyframes customfadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100px, 0);
+      transform: translate3d(0, 100px, 0);
+    }
+
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
   }
 }
 
@@ -192,28 +258,24 @@ section {
 .welcome {
   margin-bottom: 6rem;
   margin-top: 5rem;
-  max-width: 40vw;
+
+  @media (min-width: 960px) {
+    max-width: 80vh;
+  }
 }
 
 // Products
 .product {
-  @keyframes productAppear {
-    0% {
-      opacity: 0;
-      transform: translateX(10px);
-    }
-
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
   animation: productAppear 0.5s ease-in;
   transition: all 0.3s ease-in;
 
   &.featured {
     .img-container {
-      padding-top: 124.1%;
+      padding-top: 142.1%;
+
+      @media (min-width: 960px) {
+        padding-top: 124.1%;
+      }
     }
 
     .product__buttons {
