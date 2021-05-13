@@ -4,11 +4,11 @@ import { routes } from "../utils/globals";
 import { useSelector } from "react-redux";
 import { selectCartAmount } from "../features/cart/cartSlice";
 
-const Navbar = () => {
+const Navbar = ({ className }) => {
   const cart = useSelector(selectCartAmount);
 
   return (
-    <nav className="navbar navbar-expand-md navbar-light">
+    <nav className={`navbar navbar-expand-md navbar-light ${className || ""}`}>
       <button className="navbar-toggler">
         <i className="bi bi-list"></i>
       </button>
