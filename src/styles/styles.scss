@@ -33,6 +33,21 @@ p {
   }
 }
 
+// Custom Animations
+@keyframes customfadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100px, 0);
+    transform: translate3d(0, 100px, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .btn:not(.btn-link) {
   padding: 0.7rem 2.1rem;
   font-family: $font-family-sans-serif;
@@ -237,20 +252,6 @@ section.observed {
     opacity: 1;
     animation: customfadeInUp 800ms forwards;
   }
-
-  @keyframes customfadeInUp {
-    from {
-      opacity: 0;
-      -webkit-transform: translate3d(0, 100px, 0);
-      transform: translate3d(0, 100px, 0);
-    }
-
-    to {
-      opacity: 1;
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  }
 }
 
 // Welcome Section
@@ -265,8 +266,7 @@ section.observed {
 
 // Products
 .product {
-  animation: productAppear 0.5s ease-in;
-  transition: all 0.3s ease-in;
+  animation: customfadeInUp 1s forwards;
 
   &.featured {
     .img-container {
@@ -274,15 +274,6 @@ section.observed {
 
       @media (min-width: 960px) {
         padding-top: 124.1%;
-      }
-    }
-
-    .product__buttons {
-      button {
-        &.favorite {
-          color: $secondary;
-          opacity: 1 !important;
-        }
       }
     }
   }
@@ -308,10 +299,8 @@ section.observed {
     .product__buttons {
       button {
         opacity: 1;
-
-        &:not(.favorite) {
-          bottom: 5.5rem;
-        }
+        transform: translateY(0);
+        transform: scale(1);
       }
     }
 
@@ -321,64 +310,58 @@ section.observed {
   }
 
   &__buttons {
-    button {
-      opacity: 0;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    width: 100%;
 
-      &.favorite {
-        color: $gray-400;
-        transition: all 0.2s;
+    .product__button {
+      align-items: center;
+      bottom: 8rem;
+      display: flex;
+      height: 38px;
+      justify-content: center;
+      margin: 0 0.5rem;
+      opacity: 0;
+      padding: 0;
+      position: relative;
+      transform: translateY(50%);
+      transition: all 0.5s ease;
+      width: 38px;
+
+      &::before {
+        background-color: $light;
+        border-radius: 5px;
+        color: $dark;
+        display: inline-block;
+        font-size: 0.7rem;
+        opacity: 0;
+        padding: 3px 5px;
+        pointer-events: none;
+        position: absolute;
+        top: -2.5rem;
+        transition: opacity 0.3s ease;
+        width: 100px;
       }
 
-      &:not(.favorite) {
-        background-color: $dark;
-        border: none;
-        bottom: 4rem;
-        left: 50%;
-        transition: all 0.5s ease-in-out;
-
-        padding: 5px 9px;
-        position: absolute;
-
-        &:before {
-          background-color: $light;
-          border-radius: $border-radius-sm;
-          color: $dark;
-          font-size: 0.7rem;
-          left: 50%;
-          opacity: 0;
-          padding: 1px 5px;
-          position: absolute;
-          pointer-events: none;
-          top: -1.8rem;
-          transform: translate(-50%, -100%);
-          transition: all 0.3s ease-in;
+      &.more {
+        &::before {
+          content: "See more";
         }
+      }
 
-        &:hover {
-          background-color: $light;
-          color: $dark;
-
-          &:before {
-            transform: translate(-50%, 0);
-            opacity: 1;
-          }
+      &.add_to_cart {
+        &::before {
+          content: "Add to cart";
         }
+      }
 
-        &.more {
-          transform: translate(-115%, 0);
+      &:hover {
+        background-color: $light;
+        color: $dark;
 
-          &::before {
-            content: "More";
-          }
-        }
-
-        &.add-cart {
-          transform: translate(15%, 0);
-
-          &::before {
-            content: "Add to Cart";
-            width: 4.6rem;
-          }
+        &::before {
+          opacity: 1;
         }
       }
     }

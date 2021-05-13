@@ -1,7 +1,12 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { routes } from "../utils/globals";
+import { useSelector } from "react-redux";
+import { selectCartAmount } from "../features/cart/cartSlice";
 
 const Navbar = () => {
+  const cart = useSelector(selectCartAmount);
+
   return (
     <nav className="navbar navbar-expand-md navbar-light">
       <button className="navbar-toggler">
@@ -32,7 +37,7 @@ const Navbar = () => {
           <button className="btn rounded-circle py-1 px-2 position-relative">
             <i className="bi bi-suit-heart fs-5"></i>
             <span className="badge bg-secondary rounded-circle position-absolute text-dark font-monospace">
-              2
+              0
             </span>
           </button>
         </li>
@@ -40,7 +45,7 @@ const Navbar = () => {
           <button className="btn rounded-circle py-1 px-2 position-relative">
             <i className="bi bi-bag fs-5"></i>
             <span className="badge bg-info rounded-circle position-absolute text-dark font-monospace">
-              1
+              {cart}
             </span>
           </button>
         </li>

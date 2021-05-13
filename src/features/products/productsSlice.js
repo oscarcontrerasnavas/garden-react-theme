@@ -12,6 +12,10 @@ const initialState = {
   filtered: [],
   status: null,
   error: null,
+  modal: {
+    status: null,
+    text: null,
+  },
 };
 
 // Async
@@ -50,6 +54,9 @@ const productsSlice = createSlice({
 
       state.filtered = temp;
     },
+    setModalStatus(state, { payload }) {
+      state.modal.status = payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -57,10 +64,10 @@ const productsSlice = createSlice({
         state.status = "pending";
       })
       .addCase(getProducts.fulfilled, (state, action) => {
-        state.status = "fulfilled";
         state.products = action.payload;
         state.filtered = action.payload;
         state.categories = getUniqueValues(action.payload, "category");
+        state.status = "fulfilled";
       })
       .addCase(getProducts.rejected, (state) => {
         state.status = "rejected";
@@ -68,12 +75,13 @@ const productsSlice = createSlice({
   },
 });
 
-export const { updateFilter } = productsSlice.actions;
+export const { updateFilter, setModalStatus } = productsSlice.actions;
 
 // Selectors
 export const selectStatus = (state) => state.products.status;
 export const selectProducts = (state) => state.products.filtered;
 export const selectCategories = (state) => state.products.categories;
 export const selectFilters = (state) => state.products.filters;
+export const selectModal = (state) => state.products.modal;
 
 export default productsSlice.reducer;

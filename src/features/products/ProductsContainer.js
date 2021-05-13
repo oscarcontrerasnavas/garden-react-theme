@@ -67,7 +67,7 @@ const ProductsContainer = () => {
           {/* Small images */}
           <div className="col-md-7">
             <div className="row align-items-end">
-              {products.slice(1, 7).map((product, index) => {
+              {products.slice(1, 7).map((product) => {
                 return (
                   <article className="col-md-4 mb-4" key={product.id}>
                     <Product product={product} />
