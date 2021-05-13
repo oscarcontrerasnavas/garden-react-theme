@@ -82,6 +82,6 @@ export const selectStatus = (state) => state.products.status;
 export const selectProducts = (state) => state.products.filtered;
 export const selectCategories = (state) => state.products.categories;
 export const selectFilters = (state) => state.products.filters;
-export const selectModal = (state) => state.products.modal;
 
+// Default export
 export default productsSlice.reducer;
