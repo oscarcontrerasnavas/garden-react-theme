@@ -1,10 +1,16 @@
 export const home = "/";
+export const products = "/products";
 
 export const routes = [
   {
     id: 1,
     title: "Home",
     path: home,
+  },
+  {
+    id: 2,
+    title: "Products",
+    path: products,
   },
 ];
 

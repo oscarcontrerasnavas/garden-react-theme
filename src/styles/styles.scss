@@ -60,36 +60,8 @@ p {
   }
 }
 
-// main header
-.main-header {
-  position: relative;
-  z-index: 10;
-  padding-top: 1rem;
-}
-
-// Logo
-.logo {
-  font-size: 1.75rem; // 28px
-  margin-bottom: 1rem;
-}
-
-// Navbar badges
-.navbar {
-  .cart {
-    button {
-      &:hover {
-        background-color: $light;
-        transform: scale(1);
-      }
-    }
-  }
-
-  .badge {
-    font-size: 0.75rem;
-    padding: 3px 6px;
-    right: -5px;
-  }
-}
+// Site Header and Navbar
+@import "header.scss";
 
 // Main Slider
 .main__glide {

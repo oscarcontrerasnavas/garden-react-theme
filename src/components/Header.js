@@ -1,60 +1,61 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar";
-import styled from "styled-components";
+import { routes } from "../utils/globals";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [pageOffset, setPageOffset] = useState(window.pageYOffset);
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleMenu = () => {
+    setIsActive(!isActive);
+  };
 
   useEffect(() => {
-    let scrollEvent = window.addEventListener("scroll", () => {
+    const scrollEvent = window.addEventListener("scroll", () => {
       setPageOffset(window.pageYOffset);
     });
-    return () => window.removeEventListener("scroll", scrollEvent);
+    return () => {
+      window.removeEventListener("scroll", scrollEvent);
+    };
   }, []);
 
   return (
-    <Wrapper className={`main-header ${pageOffset > 0 ? "fixed" : null}`}>
+    <header className={`main__header ${pageOffset > 34 ? "fixed" : ""}`}>
       <div className="container">
-        <div className="row justify-content-between">
-          <h1 className={`logo d-md-block ${pageOffset > 0 ? "d-none" : ""}`}>
+        <div className="row align-items-center">
+          <h1>
             Garden<span className="text-primary">.</span>
           </h1>
-          <Navbar />
+          <nav className={`main__navbar ${isActive ? "active" : ""}`}>
+            <button
+              className="navbar__trigger d-md-none"
+              onClick={() => toggleMenu()}
+            >
+              <div className="lines">
+                <span className="line"></span>
+                <span className="line"></span>
+                <span className="line"></span>
+              </div>
+            </button>
+            <ul class="navbar__menu">
+              {routes.map((route) => {
+                return (
+                  <li key={route.id}>
+                    <Link to={route.path}>{route.title}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+          <div className="header__buttons d-flex align-items-center">
+            <button className="btn btn-link fs-5 text-dark">
+              <i className="bi bi-search"></i>
+            </button>
+          </div>
         </div>
       </div>
-    </Wrapper>
+    </header>
   );
 };
-
-const Wrapper = styled.header`
-  transition: all 300ms ease-in;
-
-  &.fixed {
-    background-color: white;
-    box-shadow: 0px 0 15px rgba(0, 0, 0, 0.1);
-    margin: 0;
-    padding: 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-
-    .row {
-      align-items: center;
-    }
-
-    h1.logo {
-      width: 20%;
-      margin: 0;
-    }
-
-    nav {
-      width: 100%;
-
-      @media (min-width: 540px) {
-        width: 80%;
-      }
-    }
-  }
-`;
 
 export default Header;
