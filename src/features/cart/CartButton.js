@@ -1,30 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  removeProduct,
-  selectCart,
-  selectCartAmount,
-  selectCartTotal,
-} from "./cartSlice";
+import { useSelector } from "react-redux";
+import CartButtonProductList from "./CartButtonProductList";
+import CartButtonNav from "./CartButtonNav";
+import { selectCart } from "./cartSlice";
 
 const CartButton = () => {
   const cart = useSelector(selectCart);
-  const amount = useSelector(selectCartAmount);
-  const total = useSelector(selectCartTotal);
-  const dispatch = useDispatch();
 
   if (cart < 1) {
     return (
       <Wrapper>
         <ul className="cart-button">
           <li className="cart-button__trigger">
-            <button className="btn btn-link position-relative rounded-circle">
-              <i className="bi bi-bag fs-5 text-dark"></i>
-              <span className="badge bg-primary position-absolute rounded-pill translate-middle">
-                {amount}
-              </span>
-            </button>
+            <CartButtonNav />
 
             <ul className="cart-button__content shadow">
               <li className="d-flex justify-content-center align-items-center fw-light">
@@ -47,51 +36,9 @@ const CartButton = () => {
     <Wrapper>
       <ul className="cart-button">
         <li className="cart-button__trigger">
-          <button className="btn btn-link position-relative rounded-circle">
-            <i className="bi bi-bag fs-5 text-dark"></i>
-            <span className="badge bg-primary position-absolute rounded-pill translate-middle">
-              {amount}
-            </span>
-          </button>
+          <CartButtonNav />
 
-          <ul className="cart-button__content shadow">
-            {cart.map((product) => {
-              const { id, name, image, price, amount } = product;
-              return (
-                <li className="cart__product" key={id}>
-                  <div className="d-flex align-items-center justify-content-between">
-                    <div className="col-4 d-flex align-items-center">
-                      <button
-                        className="btn btn-link m-0 p-0 me-3"
-                        onClick={() => dispatch(removeProduct(id))}
-                      >
-                        <i className="bi bi-x-circle"></i>
-                      </button>
-                      <img src={image} alt={name} className="img-fluid" />
-                    </div>
-                    <div className="d-flex flex-column justify-content-end">
-                      <h4 className="text-end text-capitalize">{name}</h4>
-                      <p className="text-end fw-bold p-0 m-0">
-                        {price} <span className="fw-light">x {amount}</span>
-                      </p>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
-            <li className="cart-button__subtotal border-0">
-              <p className="d-flex justify-content-between">
-                <span className="text-primary fw-light">Subtotal:</span>
-                <span className="fw-bold ">{total}</span>
-              </p>
-            </li>
-            <li className="cart-button__buttons d-flex flex-column justify-content-center border-0">
-              <button className="btn btn-primary mb-3 text-light">
-                Checkout
-              </button>
-              <button className="btn btn-link">View Cart</button>
-            </li>
-          </ul>
+          <CartButtonProductList cart={cart} />
         </li>
       </ul>
     </Wrapper>
@@ -132,6 +79,13 @@ const Wrapper = styled.div`
         span {
           top: 5px;
           left: 90%;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 20px;
+          height: 20px;
         }
       }
     }
