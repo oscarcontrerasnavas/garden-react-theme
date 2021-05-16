@@ -24,7 +24,11 @@ p {
 
 // Buttons
 .btn {
-  &,
+  padding: 0.7rem 2.1rem;
+  font-family: $font-family-sans-serif;
+  font-weight: $font-weight-normal;
+  letter-spacing: 1px;
+
   &:active,
   &:focus {
     outline: none;
@@ -48,25 +52,13 @@ p {
   }
 }
 
-.btn:not(.btn-link) {
-  padding: 0.7rem 2.1rem;
-  font-family: $font-family-sans-serif;
-  transition: all 0.3s ease-in-out;
-  font-weight: $font-weight-normal;
-  letter-spacing: 1px;
-
-  &:hover {
-    transform: scale(1.08);
-  }
-}
-
 // Site Header and Navbar
 @import "header.scss";
 
 // Main Slider
 .main__glide {
   position: relative;
-  top: -120px;
+  top: -130px;
 
   h1 {
     font-size: $font-size-base * 3.5;

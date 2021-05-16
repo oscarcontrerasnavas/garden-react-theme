@@ -6,6 +6,22 @@ const initialState = {
   total: 0,
 };
 
+const getTotals = (state) => {
+  // This reducer returns an object with two elements
+  const { total, amount } = state.cart.reduce(
+    (newTotal, product) => {
+      const { price, amount } = product;
+      newTotal.amount += amount;
+      let tempTotal = price * amount;
+      newTotal.total += tempTotal;
+      return newTotal;
+    },
+    { total: 0, amount: 0 }
+  );
+  state.total = total;
+  state.amount = amount;
+};
+
 const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -32,27 +48,21 @@ const cartSlice = createSlice({
           state.cart = newCart;
         }
       }
-      // This reducer returns a object with two elements
-      const { total, amount } = state.cart.reduce(
-        (newTotal, product) => {
-          const { price, amount } = product;
-          newTotal.amount += amount;
-          let tempTotal = price * amount;
-          newTotal.total += tempTotal;
-          return newTotal;
-        },
-        { total: 0, amount: 0 }
-      );
-      state.total = total;
-      state.amount = amount;
+      getTotals(state);
+    },
+    removeProduct(state, { payload }) {
+      let newCart = state.cart.filter((item) => item.id !== payload);
+      state.cart = newCart;
+      getTotals(state);
     },
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeProduct } = cartSlice.actions;
 
 // Selectors
 export const selectCart = (state) => state.cart.cart;
 export const selectCartAmount = (state) => state.cart.amount;
+export const selectCartTotal = (state) => state.cart.total;
 
 export default cartSlice.reducer;
