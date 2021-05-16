@@ -243,6 +243,24 @@ section.observed {
     }
   }
 
+  &__modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(256, 256, 256, 0.4);
+    z-index: 9;
+    border-radius: $border-radius-lg;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease-out;
+    top: 0;
+    left: 0;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
   .img-container {
     height: 0;
     overflow: hidden;
