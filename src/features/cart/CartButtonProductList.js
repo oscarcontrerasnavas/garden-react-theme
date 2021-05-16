@@ -7,7 +7,7 @@ const CartButtonProductList = ({ cart }) => {
   const dispatch = useDispatch();
 
   return (
-    <ul className="cart-button__content">
+    <ul className="cart-button__content shadow">
       {cart.map((product) => {
         const { id, name, image, price, amount } = product;
         return (
@@ -15,10 +15,10 @@ const CartButtonProductList = ({ cart }) => {
             <div className="d-flex align-items-center justify-content-between">
               <div className="col-4 d-flex align-items-center">
                 <button
-                  className="btn btn-link"
+                  className="btn btn-link m-0 p-0 me-3"
                   onClick={() => dispatch(removeProduct(id))}
                 >
-                  <i className="bi bi-x-circle me-4"></i>
+                  <i className="bi bi-x-circle"></i>
                 </button>
                 <img src={image} alt={name} className="img-fluid" />
               </div>

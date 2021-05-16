@@ -37,7 +37,7 @@ const ProductsContainer = () => {
             {categories.map((cat, index) => {
               return (
                 <button
-                  className={`btn btn-link btn-category ${
+                  className={`btn btn-link btn-category me-4 p-0 ${
                     cat.toLowerCase() === filters.category ? "active" : null
                   }`}
                   key={index}
