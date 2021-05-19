@@ -1,5 +1,5 @@
 export const home = "/";
-export const products = "/products";
+export const store = "/store";
 
 export const routes = [
   {
@@ -9,8 +9,8 @@ export const routes = [
   },
   {
     id: 2,
-    title: "Products",
-    path: products,
+    title: "Store",
+    path: store,
   },
 ];
 
