@@ -49,9 +49,6 @@ const Header = () => {
             </ul>
           </nav>
           <div className="header__buttons d-flex align-items-center justify-content-end">
-            <button className="btn btn-link fs-5 text-dark">
-              <i className="bi bi-search"></i>
-            </button>
             <CartButton />
           </div>
         </div>
