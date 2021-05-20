@@ -1,7 +1,6 @@
 .main__header {
   position: relative;
   z-index: 99;
-  transition: all 0.3s ease;
 
   &.fixed {
     position: fixed;
@@ -17,7 +16,6 @@
 
   h1 {
     width: 100%;
-    transition: all 0.3s ease;
   }
 
   .main__navbar {
