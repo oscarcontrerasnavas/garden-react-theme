@@ -167,13 +167,19 @@
           margin: 0;
           margin-right: 1rem;
 
-          &:hover,
-          &.active {
+          &:hover {
             a {
               &::before {
                 opacity: 1;
                 width: 80%;
               }
+            }
+          }
+
+          a.active {
+            &::before {
+              opacity: 1;
+              width: 80%;
             }
           }
         }

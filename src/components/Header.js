@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { routes } from "../utils/globals";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CartButton from "../features/cart/CartButton";
 
 const Header = () => {
@@ -42,7 +42,13 @@ const Header = () => {
               {routes.map((route) => {
                 return (
                   <li key={route.id}>
-                    <Link to={route.path}>{route.title}</Link>
+                    <NavLink
+                      to={route.path}
+                      exact={true}
+                      activeClassName="active"
+                    >
+                      {route.title}
+                    </NavLink>
                   </li>
                 );
               })}
