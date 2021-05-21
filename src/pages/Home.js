@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Mainslider from "../components/MainSlider";
 import ProductsContainer from "../features/products/ProductsContainer";
 import Newsletter from "../components/Newsletter";
-import GalleryContainer from "../features/gallery/GalleryContainer";
+import Gallery from "../features/gallery/Gallery";
 import Footer from "../components/Footer";
 import "../utils/parallax";
 import pot1 from "../assets/images/pot1.jpg";
@@ -138,7 +138,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <GalleryContainer />
+      <Gallery />
       <Footer />
     </>
   );
