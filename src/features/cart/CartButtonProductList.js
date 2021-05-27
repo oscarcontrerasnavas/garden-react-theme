@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCartTotal, removeProduct } from "./cartSlice";
+import { formatPrice } from "../../utils/helpers";
 
 const CartButtonProductList = ({ cart }) => {
   const total = useSelector(selectCartTotal);
@@ -25,7 +26,8 @@ const CartButtonProductList = ({ cart }) => {
               <div className="d-flex flex-column justify-content-end">
                 <h4 className="text-end text-capitalize">{name}</h4>
                 <p className="text-end fw-bold p-0 m-0">
-                  {price} <span className="fw-light">x {amount}</span>
+                  {formatPrice(price)}{" "}
+                  <span className="fw-light">x {amount}</span>
                 </p>
               </div>
             </div>
@@ -35,7 +37,7 @@ const CartButtonProductList = ({ cart }) => {
       <li className="cart-button__subtotal border-0">
         <p className="d-flex justify-content-between">
           <span className="text-primary fw-light">Subtotal:</span>
-          <span className="fw-bold ">{total}</span>
+          <span className="fw-bold ">{formatPrice(total)}</span>
         </p>
       </li>
       <li className="cart-button__buttons d-flex flex-column justify-content-center border-0">
