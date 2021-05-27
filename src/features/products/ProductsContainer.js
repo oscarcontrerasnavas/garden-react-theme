@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getProducts,
-  updateFilter,
   selectProducts,
   selectCategories,
   selectFilters,
+  updateFilters,
 } from "./productsSlice";
 import Product from "./Product";
 
@@ -42,7 +42,7 @@ const ProductsContainer = () => {
                   }`}
                   key={index}
                   onClick={() =>
-                    dispatch(updateFilter({ name: "category", value: cat }))
+                    dispatch(updateFilters({ name: "category", value: cat }))
                   }
                 >
                   {cat}
