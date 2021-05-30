@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../cart/cartSlice";
 import styled from "styled-components";
 import { formatPrice } from "../../utils/helpers";
+import { product as productPath } from "../../utils/globals";
 
 const Product = ({ product, className, list = false }) => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const Product = ({ product, className, list = false }) => {
   };
 
   if (!list) {
-    const { name, image, price } = product;
+    const { id, name, image, price } = product;
     return (
       <Wrapper className={`product position-relative ${className}`}>
         <div className="img-container">
@@ -50,9 +51,12 @@ const Product = ({ product, className, list = false }) => {
         <h3 className="text-center">{formatPrice(price)}</h3>
 
         <div className="product__buttons">
-          <button className="product__button more btn btn-dark rounded-circle">
+          <Link
+            to={`${productPath}/${id}`}
+            className="product__button more btn btn-dark rounded-circle"
+          >
             <i className="bi bi-search fs-5"></i>
-          </button>
+          </Link>
           <button
             className="product__button add_to_cart btn btn-dark rounded-circle"
             onClick={(e) => addProduct(e, product)}
@@ -63,7 +67,7 @@ const Product = ({ product, className, list = false }) => {
       </Wrapper>
     );
   } else {
-    const { name, image, price } = product;
+    const { id, name, image, price } = product;
     return (
       <div className="row align-items-center mb-5">
         <div className="col-4">

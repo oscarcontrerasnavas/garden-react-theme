@@ -4,6 +4,7 @@ import Sort from "../features/products/Sort";
 import ProductList from "../features/products/ProductList";
 import { Link } from "react-router-dom";
 import { home } from "../utils/globals";
+import Footer from "../components/Footer";
 
 const Store = () => {
   return (
@@ -18,7 +19,7 @@ const Store = () => {
           </h2>
         </div>
       </div>
-      <div className="container store">
+      <div className="container store mb-5">
         <div className="row justify-content-between">
           <div className="col-12 col-md-2">
             <Filters />
@@ -30,6 +31,7 @@ const Store = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

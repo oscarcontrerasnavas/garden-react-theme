@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { products_url } from "../../utils/globals";
+import { products_url, single_product_url } from "../../utils/globals";
 import { getUniqueValues } from "../../utils/helpers";
 
 const initialState = {
   products: [],
+  product: null,
   categories: [],
   companies: [],
   colors: [],
@@ -25,21 +26,32 @@ const initialState = {
   gridView: true,
 };
 
-// Async
-export const getProducts = createAsyncThunk(
-  "products/getProducts",
-  async () => {
-    try {
-      const response = await axios.get(products_url);
-      if (299 >= response.status && response.status >= 200) {
-        return response.data;
-      } else {
-        throw new Error(`error: ${response.status}`);
-      }
-    } catch (error) {
-      return error;
-    }
+const apiFetch = async (id = null) => {
+  let url = "";
+  if (!id) {
+    url = products_url;
+  } else {
+    url = single_product_url + id;
   }
+
+  try {
+    const response = await axios.get(url);
+    if (299 >= response.status && response.status >= 200) {
+      return response.data;
+    } else {
+      throw new Error(`error: ${response.status}`);
+    }
+  } catch (error) {
+    return error;
+  }
+};
+
+export const getProducts = createAsyncThunk("products/getProducts", () =>
+  apiFetch()
+);
+
+export const getProduct = createAsyncThunk("products,getProduct", (id) =>
+  apiFetch(id)
 );
 
 // Slice
@@ -139,6 +151,7 @@ const productsSlice = createSlice({
         let maxPrice = payload.map((product) => product.price);
         maxPrice = Math.max(...maxPrice);
 
+        // Initial State after getting products from API
         state.products = payload;
         state.filtered = payload;
         state.categories = getUniqueValues(payload, "category");
@@ -150,6 +163,16 @@ const productsSlice = createSlice({
       })
       .addCase(getProducts.rejected, (state) => {
         state.status = "rejected";
+      })
+      .addCase(getProduct.pending, (state) => {
+        state.status = "pending";
+      })
+      .addCase(getProduct.fulfilled, (state, { payload }) => {
+        state.product = payload;
+        state.status = "fulfilled";
+      })
+      .addCase(getProduct.rejected, (state) => {
+        state.status = "rejected";
       });
   },
 });
@@ -160,6 +183,7 @@ export const { updateFilters, updateSort, clearFilters, changeView } =
 // Selectors
 export const selectStatus = (state) => state.products.status;
 export const selectProducts = (state) => state.products.filtered;
+export const selectProduct = (state) => state.products.product;
 export const selectCategories = (state) => state.products.categories;
 export const selectCompanies = (state) => state.products.companies;
 export const selectColors = (state) => state.products.colors;

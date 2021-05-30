@@ -1,5 +1,6 @@
 export const home = "/";
 export const store = "/store";
+export const product = "/product";
 
 export const routes = [
   {
